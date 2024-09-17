@@ -1,0 +1,15 @@
+#Navbar {
+    background-color: black;
+    width: 100vw;
+    height: 50px;
+}
+
+#Navbar-logo {
+    margin: 10px;
+    color: white;
+}
+
+.Navbar-navlink {
+    margin: 10px;
+    color: white;
+}
