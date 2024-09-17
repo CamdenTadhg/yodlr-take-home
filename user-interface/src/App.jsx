@@ -28,15 +28,8 @@ function App() {
 export default App
 
 //set up routes
-  //create home
   //run tests
 //user registration functionality
-  //write user registration form tests
-    //smoke
-    //snapshot
-    //content
-    //functionality
-  //user registration form
   //run tests
 //user administration functionality
   //write user lists tests
@@ -77,5 +70,5 @@ export default App
 //sign up form validation
 //sorting/searching of users
 //authentication/authorization
-//experiment with alternative designs (A/B Testing is important for registration!)
 //optimize assets (minimize and/or bundle css/js)
+//experiment with alternative designs (A/B Testing is important for registration!)

@@ -15,7 +15,7 @@ it('renders home page and navigates to signup page and back', async () => {
 
     await userEvent.click(getByText(/Signup/i));
 
-    expect(getByText(/Signup Form/i)).toBeInTheDocument;
+    expect(getByText(/Signup for Yodlr/i)).toBeInTheDocument;
 
     await userEvent.click(getByText(/Yodlr/i));
 
