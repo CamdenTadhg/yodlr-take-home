@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, getByText} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
 import {it, expect} from 'vitest';
 import Navbar from '../Navbar'
@@ -22,7 +22,7 @@ it('matches the snapshot', () => {
 });
 
 it('displays the correct content', () => {
-    render(
+    const {getByText} = render(
         <MemoryRouter>
             <Navbar/>
         </MemoryRouter>

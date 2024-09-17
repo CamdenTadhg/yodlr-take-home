@@ -45,7 +45,7 @@ it('updates form content on typing', async () => {
 
 it('sends the data to create a new user', async() => {
     const mock = new MockAdapter(axios);
-    mock.onPost('/').reply(200,'user data');
+    mock.onPost('http://localhost:3000/users/1').reply(200,'user data');
     const {getByText, getByPlaceholderText} = render(
         <MemoryRouter>
             <SignupForm/>
@@ -57,11 +57,10 @@ it('sends the data to create a new user', async() => {
     await userEvent.type(getByPlaceholderText(/Last Name/i), 'User');
     await userEvent.click(getByText(/Submit/i));
 
-    await waitFor(() => {
-        expect(mock).toHaveBeenCalledWith({
-            email: 'testuser@test.com',
-            firstName: 'Test',
-            lastName: 'User'
-        });
-    });
+    expect(mock.history.post.length).toBe(1);
+    expect(mock.history.post[0].data).toBe(JSON.stringify({
+        email: 'testuser@test.com',
+        firstName: 'Test', 
+        lastName: 'User'
+    }));
 });

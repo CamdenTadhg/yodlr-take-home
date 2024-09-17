@@ -1,4 +1,4 @@
-import {render, getByText} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import {it, expect} from 'vitest';
 import {MemoryRouter} from 'react-router-dom';
 import Home from '../Home';
@@ -21,7 +21,7 @@ it('matches the snapshot', () => {
 })
 
 it('displays the correct content', () => {
-    render(
+    const {getByText} = render(
         <MemoryRouter>
             <Home/>
         </MemoryRouter>

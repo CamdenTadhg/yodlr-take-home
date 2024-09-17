@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      id="Navbar"
+    >
+      <a
+        href="/"
+        id="Navbar-logo"
+      >
+        Yodlr Home
+      </a>
+      <a
+        class="Navbar-navlink"
+        href="/signup"
+      >
+        Signup
+      </a>
+      <a
+        class="Navbar-navlink"
+        href="/admin"
+      >
+        Admin
+      </a>
+    </div>
+    <div>
+      <h1>
+        User List
+      </h1>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -27,44 +27,18 @@ function App() {
 
 export default App
 
-//set up routes
-  //run tests
-//user registration functionality
-  //run tests
 //user administration functionality
-  //write user lists tests
-    //smoke
-    //snapshot
-    //content
-    //functionality
-  //write delete user button tests
-    //smoke
-    //snapshot
-    //content
-    //functionality
-  //write activate user button tests
-    //smoke
-    //snapshot
-    //content
-    //functionality
-  //write edit user form tests
-    //smoke
-    //snapshot
-    //content
-    //functionality
-  //user list
-  //delete user button
-  //activate user button
   //edit user form
-  //run tests
-//style pages
+    //pass down necessary functions to add delete and activate functions here
+  //run tests -- App, Activate User, DeleteUser, EditUserForm, Home, Navbar, SignupForm, UserList
+//style pages (try using Foundation - https://github.com/digiaonline/react-foundation#readme)
   //home page
   //user registration form
   //user list
   //delete user button
   //activate user button
   //edit user form
-//run tests
+//run tests - App, Activate User, DeleteUser, EditUserForm, Home, Navbar, SignupForm, UserList
 //dynamic data on admin page
 //admin creation of new accounts
 //sign up form validation
@@ -72,3 +46,6 @@ export default App
 //authentication/authorization
 //optimize assets (minimize and/or bundle css/js)
 //experiment with alternative designs (A/B Testing is important for registration!)
+  //move all axios into a separate api file and use variable for URL
+  //add redux
+    //move delete and activate functions to store?

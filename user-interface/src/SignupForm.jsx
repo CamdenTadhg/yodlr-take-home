@@ -22,12 +22,10 @@ const SignupForm = (signup) => {
         event.preventDefault();
         try {
             const user = await axios.post('http://localhost:3000/users/', {...formData});
-            console.log(user);
             if (user) {
                 setMessage('Signup complete')
             }
         } catch(error) {
-            console.log(error);
             setMessage(error.message);
         }
     }
