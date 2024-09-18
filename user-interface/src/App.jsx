@@ -28,8 +28,6 @@ function App() {
 export default App
 
 //user administration functionality
-  //edit user form
-    //pass down necessary functions to add delete and activate functions here
   //run tests -- App, Activate User, DeleteUser, EditUserForm, Home, Navbar, SignupForm, UserList
 //style pages (try using Foundation - https://github.com/digiaonline/react-foundation#readme)
   //home page
@@ -49,3 +47,4 @@ export default App
   //move all axios into a separate api file and use variable for URL
   //add redux
     //move delete and activate functions to store?
+  //change variable names to be clearer
