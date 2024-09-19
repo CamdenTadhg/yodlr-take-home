@@ -4,6 +4,7 @@ import DeleteUser from './DeleteUser';
 import ActivateUser from './ActivateUser';
 import EditUserForm from './EditUserForm';
 import './UserList.css';
+import { unary } from 'lodash';
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
@@ -22,19 +23,22 @@ const UserList = () => {
         getUsers();
     }, [])
 
-    const deleteUser = async (user) => {
-        await axios.delete(`http://localhost:3000/users/${user.id}`);
-        setMessage(`User ${user.firstName} ${user.lastName} deleted.`);
+    const deleteUser = async (delUser) => {
+        await axios.delete(`http://localhost:3000/users/${delUser.id}`);
+        setUsers(users.filter((u) => u.id !== delUser.id));
+        setMessage(`User ${delUser.firstName} ${delUser.lastName} deleted.`);
     }
 
     const activate = async (user) => {
-        await axios.put(`http://localhost:3000/users/${user.id}`, {
+        const userData = {            
             id: user.id,
             email: user.email,
             firstName: user.firstName,
             lastName: user.lastName,
-            state: 'active'
-        });
+            state: 'active'};
+        await axios.put(`http://localhost:3000/users/${user.id}`, userData);
+        const userIndex = users.findIndex((element) => element.id === user.id);
+        users[userIndex] = userData;
         setMessage(`User ${user.firstName} ${user.lastName} activated.`);
     }
 
