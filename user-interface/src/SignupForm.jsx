@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import './SignupForm.css';
 
 const SignupForm = (signup) => {
     const initialState = {
@@ -32,17 +33,19 @@ const SignupForm = (signup) => {
 
     return (
         <>
-        <p>Signup for Yodlr</p>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor='email'>Email:</label>
-            <input type='text' name='email' id='email' placeholder='Email' value={formData.email} onChange={handleChange}/>
-            <label htmlFor='firstName'>First Name:</label>
-            <input type='text' name='firstName' id='firstName' placeholder='First Name' value={formData.firstName} onChange={handleChange}/>
-            <label htmlFor='lastName'>Last Name:</label>
-            <input type='text' name='lastName' id='lastName' placeholder='Last Name' value={formData.lastName} onChange={handleChange}/>
-            {message ? <div className='alert'>{message}</div> : null}
-            <button>Submit</button>
-        </form>
+        <p className='SignupForm-header'>Signup for Yodlr</p>
+        <div className='SignupForm-div'>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor='email'>Email:</label>
+                <input type='text' name='email' id='email' placeholder='Email' value={formData.email} onChange={handleChange}/>
+                <label htmlFor='firstName'>First Name:</label>
+                <input type='text' name='firstName' id='firstName' placeholder='First Name' value={formData.firstName} onChange={handleChange}/>
+                <label htmlFor='lastName'>Last Name:</label>
+                <input type='text' name='lastName' id='lastName' placeholder='Last Name' value={formData.lastName} onChange={handleChange}/>
+                {message ? <div className='alert'>{message}</div> : null}
+                <button className='submit'>Submit</button>
+            </form>
+        </div>
         </>
 
     )

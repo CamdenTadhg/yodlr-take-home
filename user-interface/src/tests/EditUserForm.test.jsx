@@ -7,12 +7,12 @@ import MockAdapter from 'axios-mock-adapter';
 import axios from 'axios';
 import EditUserForm from '../EditUserForm';
 
-const user = { "id": 1, "email": "kyle@getyodlr.com", "firstName": "Kyle", "lastName": "White", "state": "active"}
+const testUser = { "id": 1, "email": "kyle@getyodlr.com", "firstName": "Kyle", "lastName": "White", "state": "active"}
 
 it('renders without crashing', () => {
     render(
         <MemoryRouter>
-            <EditUserForm user={user}/>
+            <EditUserForm user={testUser}/>
         </MemoryRouter>
     );
 });
@@ -20,18 +20,18 @@ it('renders without crashing', () => {
 it('matches snapshot', () => {
     const {asFragment} = render(
         <MemoryRouter>
-            <EditUserForm user={user}/>
+            <EditUserForm user={testUser}/>
         </MemoryRouter>
     );
 });
 
 it('displays the correct content', () => {
-    const {getByText} = render(
+    const {getByDisplayValue} = render(
         <MemoryRouter>
-            <EditUserForm user={user}/>
+            <EditUserForm user={testUser}/>
         </MemoryRouter>
     );
-    expect(getByText(/Kyle/i)).toBeInTheDocument();
+    expect(getByDisplayValue(/Kyle/)).toBeInTheDocument();
 });
 
 it("edits a user's record", async () => {
@@ -44,20 +44,25 @@ it("edits a user's record", async () => {
         state: 'active'
     });
 
-    const {getByText, getByPlaceholderText} = render(
+    const {getByText, getByLabelText} = render(
         <MemoryRouter>
-            <EditUserForm user={user}/>
+            <EditUserForm user={testUser}/>
         </MemoryRouter>
     );
 
-    await userEvent.type(getByPlaceholderText(/Email/i), 'kylewhite@getyodlr.com');
-    await userEvent.click(getByText(/Save/i));
+    await userEvent.clear(getByLabelText(/Email/i));
+    await userEvent.type(
+        getByLabelText(/Email/i), 
+        'kylewhite@getyodlr.com');
+    await userEvent.click(getByText(/Submit/i));
     
     expect(mock.history.put.length).toBe(1);
     expect(mock.history.put[0].data).toBe(JSON.stringify({
+        id: 1,
         email: 'kylewhite@getyodlr.com',
         firstName: 'Kyle', 
-        lastName: 'White'
+        lastName: 'White', 
+        state: 'active'
     }));
     expect(getByText(/User Kyle White Updated/i)).toBeInTheDocument();
 });

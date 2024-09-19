@@ -1,15 +1,29 @@
 #Navbar {
-    background-color: black;
-    width: 100vw;
-    height: 50px;
+    background-color: #643A71;
+    height: 10vh;
+    font-size: 1.25rem;
 }
 
 #Navbar-logo {
     margin: 10px;
+    margin-left: 20px;
     color: white;
+    float: left;
+    padding-top: 10px;
+}
+
+#Navbar-logo:hover {
+    color: #FEC0CE
 }
 
 .Navbar-navlink {
     margin: 10px;
     color: white;
+    float: right;
+    padding-top: 10px;
+    margin-right: 20px;
+}
+
+.Navbar-navlink:hover {
+    color: #FEC0CE
 }

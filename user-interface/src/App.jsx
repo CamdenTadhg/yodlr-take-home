@@ -13,12 +13,13 @@ function App() {
     <div className='App'>
         <BrowserRouter>
           <Navbar />
+          <div className='main'>
           <Routes>
             <Route path='/signup' element={<SignupForm/>}/>
             <Route path='/admin' element={<UserList/>}/>
-            <Route path='/users/:id' element={<EditUserForm/>}/>
             <Route path='/' element={<Home/>}/>
           </Routes>
+          </div>
         </BrowserRouter>
 
     </div>
@@ -27,16 +28,6 @@ function App() {
 
 export default App
 
-//user administration functionality
-  //run tests -- App, Activate User, DeleteUser, EditUserForm, Home, Navbar, SignupForm, UserList
-//style pages (try using Foundation - https://github.com/digiaonline/react-foundation#readme)
-  //home page
-  //user registration form
-  //user list
-  //delete user button
-  //activate user button
-  //edit user form
-//run tests - App, Activate User, DeleteUser, EditUserForm, Home, Navbar, SignupForm, UserList
 //dynamic data on admin page
 //admin creation of new accounts
 //sign up form validation

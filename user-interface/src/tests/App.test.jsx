@@ -20,7 +20,7 @@ it('renders home page and navigates to signup page and back', async () => {
 });
 
 
-it('navigates to user list page and user edit page', async () => {
+it('navigates to user list page', async () => {
     const {getByText} = render(
         <App />
     );
@@ -28,8 +28,6 @@ it('navigates to user list page and user edit page', async () => {
     await userEvent.click(getByText(/Admin/i));
     expect(getByText(/User List/i)).toBeInTheDocument;
     
-    await userEvent.click(getByText(/Kyle/i));
-    expect(getByText(/Edit User/i)).toBeInTheDocument;
 });
 
 it('renders without crashing', () => {

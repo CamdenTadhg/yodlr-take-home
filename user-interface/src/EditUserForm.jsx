@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import './EditUserForm.css'
 
-const EditUserForm = ({user, deleteUser, activate}) => {
+const EditUserForm = ({user}) => {
     const [formData, setFormData] = useState(user);
     const [message, setMessage] = useState('');
 
@@ -33,7 +34,8 @@ const EditUserForm = ({user, deleteUser, activate}) => {
     }
 
     return(
-        <form>
+        <form id='EditUserForm'>
+            <h3 id='EditUserForm-header'>Edit User Form</h3>
             <label htmlFor='email'>Email: </label>
             <input type='text' name='email' id='email' value={formData.email} onChange={handleChange}/>
             <label htmlFor='firstName'>First Name: </label>
